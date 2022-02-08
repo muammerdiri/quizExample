@@ -26,9 +26,8 @@ class QuizController extends Controller
      */
     public function create()
     {
-        return "Create Çalıştı"; 
+        return view('admin.quiz.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
