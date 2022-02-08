@@ -4,28 +4,30 @@
             {{ __('Quiz Oluştur') }}
         </h2>    
     </x-slot>
+   
     <div class="card">
+        
         <div class="card-body">
             <form action="{{route('quizzes.store')}}" method="POST">
                 @csrf
                 <div class="form-group mt-2">
                     <label for="">Quiz Başlığı</label>
-                    <input type="text" name="title" class="form-control" required>
+                    <input type="text" name="title" class="form-control" value="{{old('title')}}">
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="">Quiz Açıklama</label>
-                    <textarea  name="description" class="form-control" rows="4" ></textarea>
+                    <textarea  name="description" class="form-control" value="{{old('description')}} rows="4" ></textarea>
                 </div>
 
                 <div class="form-group mt-2">
-                    <input id="isFinished" type="checkbox">
+                    <input id="isFinished"  @if (old('finished_at'))@endif type="checkbox">
                     <label for="">Bitiş Tarihi olacak mı?</label>
                 </div>
 
-                <div id="finishedInput" style="display:none" class="form-group mt-2">
+                <div id="finishedInput" @if (!old('finished_at')) style="display:none" @endif class="form-group mt-2">
                     <label for="">Bitiş Tarihi</label>
-                    <input type="datetime-local" name="finished_at" class="form-control" >
+                    <input type="datetime-local" value="{{old('finished_at')}}" name="finished_at" class="form-control" >
                 </div>
 
                 <div  class="form-group mt-2">
