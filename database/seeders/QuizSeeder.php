@@ -13,7 +13,7 @@ class QuizSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Quiz::factory(8)->create();
+        \App\Models\Quiz::factory(10)->create();
 
     }
 }
